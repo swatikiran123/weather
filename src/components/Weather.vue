@@ -19,10 +19,11 @@
             </div> 
         <div class="row" v-show='dataShow'>
              <div class="col-md-5 col-xs-12 col-lg-5">
+          <label>Today's Weather Forecast</label><br>
+                <b>{{dayDate1 | formatDate}}</b><br>
                 <b>Weather in {{countryName}}, {{country}}</b><br>
                 <b>Weather {{countryName}} , {{tempDay}} °C</b><br>
-                <b>{{main}}</b><br>
-                <b>{{dayDate1}}</b><br>
+                <b>{{main}} <img v-bind:src="day1icon"></b><br>
 
         <table class="table table-hover">
             <thead>
@@ -55,26 +56,27 @@
              </div>
  
         <div class="col-md-6 col-xs-12 col-lg-6">
+          <label>Weather Forecast</label>
                 <table class="table table-hover">
             <thead>
             <tr>
-                <td>{{dayDate1}}<img v-bind:src="day1icon"></td>
+                <td>{{dayDate1 | formatDate}}<img v-bind:src="day1icon"></td>
                 <td>{{min}}°C-{{max}}°C, {{description}}<br>P:{{pressure}}, H:{{humidity}}%</td>
             </tr>
             <tr>
-                <td>{{dayDate2}}<img v-bind:src="day2icon"></td>
+                <td>{{dayDate2 | formatDate}}<img v-bind:src="day2icon"></td>
                 <td>{{min1}}°C-{{max1}}°C ,{{description1}}<br>P:{{pressure1}}, H:{{humidity1}}%</td>
             </tr>
              <tr>
-                <td>{{dayDate3}}<img v-bind:src="day3icon"></td>
+                <td>{{dayDate3 | formatDate}}<img v-bind:src="day3icon"></td>
                 <td>{{min2}}°C-{{max2}}°C , {{description2}}<br>P:{{pressure2}}, H:{{humidity2}}%</td>
             </tr>
             <tr>
-                <td>{{dayDate4}}<img v-bind:src="day4icon"></td>
+                <td>{{dayDate4 | formatDate}}<img v-bind:src="day4icon"></td>
                 <td>{{min3}}°C-{{max3}}°C , {{description3}}<br>P:{{pressure3}}, H:{{humidity3}}%</td>
             </tr>
              <tr>
-                <td>{{dayDate5}}<img v-bind:src="day5icon"></td>
+                <td>{{dayDate5 | formatDate}}<img v-bind:src="day5icon"></td>
                 <td> {{min4}}°C-{{max4}}°C, {{description4}}<br>P:{{pressure4}}, H:{{humidity4}}%</td>
             </tr>
             </thead>
@@ -235,7 +237,7 @@ export default {
 
         this.options = {
           title: {
-            text: "Last five days Average Temperature",
+            text: "Temperature",
             x: -20 //center
           },
           xAxis: {

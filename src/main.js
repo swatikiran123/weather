@@ -7,12 +7,22 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);
 
+
+import moment from 'moment';
+
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('MMMM DD YYYY')
+  }
+});
+
 import Highcharts from 'highcharts'
 import VueHighcharts from 'vue-highcharts'
 import highchartsMore from 'highcharts/highcharts-more'
 
 highchartsMore(Highcharts)
 Vue.use(VueHighcharts, {Highcharts})
+
 
 import App from './App.vue';
 import CreateItem from './components/CreateItem.vue';
@@ -38,7 +48,7 @@ const routes = [
         },
         {
               name: 'Weather',
-              path: '/weather/:id',
+              path: '/city/:id',
               component: Weather
           }
 ];

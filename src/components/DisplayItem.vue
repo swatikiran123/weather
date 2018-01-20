@@ -3,16 +3,16 @@
         <h1>List of Cities</h1>
 
         <div class="row">
-          <div class="col-md-10">Add a city of your favorite and add note(Ex:Travelled these days with this temp.!!!).</div>
+          <div class="col-md-10">Add a city of your favorite and add note(Ex:Vecation plan.!!!).</div>
           <div class="col-md-2">
             <router-link :to="{ name: 'CreateItem' }" class="btn btn-primary">Add City</router-link>
           </div>
         </div><br />
-
+        <!-- <input v-model="search" class="form-control" placeholder="Filter by City"> -->
         <table class="table table-hover">
             <thead>
             <tr>
-                <td>ID</td>
+                <!-- <td>ID</td> -->
                 <td>Name</td>
                 <td>Note</td>
                 <td>Actions</td>
@@ -20,8 +20,10 @@
             </thead>
 
             <tbody>
+                <!-- v-for
+                v-repeat -->
                 <tr v-for="item in items">
-                    <td>{{ item._id }}</td>
+                    <!-- <td>{{ item._id }}</td> -->
                     <td>{{ item.name }}</td>
                     <td>{{ item.description }}</td>
                     <td><router-link :to="{name: 'EditItem', params: { id: item._id }}" class="btn btn-primary">Edit</router-link></td>
@@ -38,7 +40,8 @@
     export default {
         data(){
             return{
-                items: []
+                items: [],
+                search: '',
             }
         },
 
